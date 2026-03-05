@@ -1,0 +1,22 @@
+# ==========================================================================
+# IGNORAR ARCHIVOS BASURA Y CARPETAS DEL SISTEMA/EDITOR
+# ==========================================================================
+
+# Archivos ocultos de macOS y Windows
+.DS_Store
+Thumbs.db
+
+# Configuración local de Visual Studio Code
+.vscode/
+
+# ==========================================================================
+# IGNORAR ARCHIVOS DE FIREBASE Y NODE
+# ==========================================================================
+
+# Logs y caché de Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# Dependencias de Node (por si en el futuro instalas paquetes)
+node_modules/
