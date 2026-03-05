@@ -2,6 +2,8 @@
 
 Este proyecto es una aplicación web Frontend desarrollada para la asignatura de desarrollo web. Consiste en una plataforma de búsqueda y gestión de pedidos de comida a domicilio centrada en el entorno universitario (CUMe y Mérida).
 
+**🌐 Proyecto Desplegado en Vivo:** [Visitar CUMEats](https://cumeats-merida.web.app)
+
 ## 👨‍💻 Autor
 * **Nombre:** David Ortega Contreras
 
@@ -22,6 +24,13 @@ El proyecto cumple estrictamente con los requisitos del enunciado, destacando:
    * **Filtrado:** Simulación de búsqueda que renderiza las tarjetas de restaurantes según su zona de reparto.
    * **Carrito de la compra:** Sistema interactivo para añadir/eliminar platos de la carta y calcular el total dinámicamente.
    * **Manipulación del DOM:** Posibilidad de añadir platos dinámicamente en el panel de administración (`edicion.html`).
+
+## ☁️ Control de Versiones y Despliegue
+
+Para llevar el proyecto un paso más allá de los requisitos básicos y simular un entorno de desarrollo profesional real, se ha implementado lo siguiente:
+
+* **Control de Versiones (Git & GitHub):** El código fuente está versionado y respaldado en un repositorio de GitHub, utilizando buenas prácticas y un archivo `.gitignore` para omitir archivos innecesarios de Node.js y del sistema operativo.
+* **Hosting (Firebase):** La aplicación ha sido desplegada en producción a través de **Google Firebase Hosting**. Esto proporciona una URL pública con certificado SSL (HTTPS) que permite al evaluador testear la aplicación web de forma completa desde cualquier dispositivo, sin necesidad de descargar el código ni levantar un servidor local.
 
 ## 📁 Estructura del Proyecto
 
@@ -46,4 +55,5 @@ ORTEGA_CONTRERAS_DAVID/
 │   ├── main.js              # Carga de componentes globales (Header/Footer)
 │   ├── search.js            # Lógica del buscador, autocompletado y listado
 │   └── validations.js       # Reglas de validación para registro y edición
+├── .gitignore               # Archivos omitidos en el control de versiones
 └── *.html                   # Vistas principales de la aplicación (index, listado, etc.)
