@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación web Frontend desarrollada para la asignatura de desarrollo web. Consiste en una plataforma de búsqueda y gestión de pedidos de comida a domicilio centrada en el entorno universitario (CUMe y Mérida).
 
-**🌐 Proyecto Desplegado en Vivo:** [Visitar CUMEats](https://cumeats-merida.web.app)
+**🌐 Proyecto Desplegado en Vivo:** [Visitar CUMEats](https://cumeats-tw.web.app/)
 
 ## 👨‍💻 Autor
 * **Nombre:** David Ortega Contreras
