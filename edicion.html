@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración - Editar Restaurante | CampusBite</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/validations.js" defer></script>
+    <script src="js/edicion.js" defer></script>
+</head>
+<body class="site-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <main class="edicion-main">
+        <div class="container">
+            <header class="admin-header">
+                <h1 class="section-title">Panel de Gestión: Editar Restaurante</h1>
+                <p class="admin-subtitle">Modifica la información pública y gestiona la carta de tu establecimiento.</p>
+            </header>
+
+            <form id="editRestaurantForm" class="admin-form" novalidate>
+                
+                <fieldset class="form-section">
+                    <legend>Información General</legend>
+                    
+                    <div class="form-group">
+                        <label for="restName" class="form-label">Nombre del Restaurante (Text):</label>
+                        <input type="text" id="restName" name="nombre" class="form-control" placeholder="Ej: Cafetería CUMe" required>
+                        <p id="restNameError" class="field-error hidden"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restAddress" class="form-label">Dirección Completa (Textarea):</label>
+                        <textarea id="restAddress" name="direccion" class="form-control" placeholder="Indica la calle, número y ciudad..." required></textarea>
+                        <p id="restAddressError" class="field-error hidden"></p>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section flex-grid">
+                    <legend>Contacto y Tarifas</legend>
+
+                    <div class="form-group half-width">
+                        <label for="restPhone" class="form-label">Teléfono (Tel):</label>
+                        <input type="tel" id="restPhone" name="telefono" class="form-control" placeholder="+34 000 000 000" required>
+                        <p id="restPhoneError" class="field-error hidden"></p>
+                    </div>
+
+                    <div class="form-group half-width">
+                        <label for="restEmail" class="form-label">Email de contacto (Email):</label>
+                        <input type="email" id="restEmail" name="email" class="form-control" placeholder="restaurante@ejemplo.com" required>
+                        <p id="restEmailError" class="field-error hidden"></p>
+                    </div>
+
+                    <div class="form-group half-width">
+                        <label for="restPriceMin" class="form-label">Precio Mínimo (Number):</label>
+                        <input type="number" id="restPriceMin" name="precioMin" step="0.01" class="form-control" required>
+                    </div>
+
+                    <div class="form-group half-width">
+                        <label for="restPriceMax" class="form-label">Precio Máximo (Number):</label>
+                        <input type="number" id="restPriceMax" name="precioMax" step="0.01" class="form-control" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend>Atributos del establecimiento</legend>
+
+                    <div class="form-group">
+                        <span class="form-label">Categorías (Checkbox):</span>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="cat" value="Desayunos"> Desayunos</label>
+                            <label><input type="checkbox" name="cat" value="Menu"> Menú del día</label>
+                            <label><input type="checkbox" name="cat" value="Bocadillos"> Bocadillos</label>
+                            <label><input type="checkbox" name="cat" value="Pizza"> Pizza</label>
+                            <label><input type="checkbox" name="cat" value="Vegano"> Vegano</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="form-label">Bike Friendly (Radio button):</span>
+                        <div class="radio-group">
+                            <label><input type="radio" name="bikeFriendly" value="Sí" checked> Sí</label>
+                            <label><input type="radio" name="bikeFriendly" value="No"> No</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend>Gestión de la Carta</legend>
+                    <div id="dishesContainer" class="edit-dishes-list">
+                        </div>
+                    <button type="button" id="btnAddDish" class="btn btn-secondary" style="margin-top: 1rem;">
+                        ➕ Añadir nuevo plato
+                    </button>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="window.history.back()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

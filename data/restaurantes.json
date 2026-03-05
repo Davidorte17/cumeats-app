@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cafetería CUMe",
+        "direccion": "Av. de Santa Teresa de Jornet, 38, 06800 Mérida",
+        "telefono": "+34 924 38 70 68",
+        "email": "cafeteria@cume.uex.es",
+        "precioMin": 1.5,
+        "precioMax": 12.0,
+        "categorias": ["Desayunos", "Menú del día", "Bocadillos"],
+        "valoracion": 4.8,
+        "bikeFriendly": "Sí",
+        "tiempoEntrega": "10-15 min",
+        "costeEnvio": 0.0,
+        "zonas": ["universidad", "santa teresa", "merida", "cume"],
+        "imagen": "../assets/logos_restaurantes/cafeteria_logo.jpg",
+        "carta": [
+            {"nombre": "Bocadillo de Tortilla", "desc": "Tortilla casera con jamón.", "precio": 3.50},
+            {"nombre": "Menú Estudiante", "desc": "Completo con bebida y postre.", "precio": 6.50},
+            {"nombre": "Tostada con Tomate", "desc": "Aceite de oliva virgen extra y tomate natural.", "precio": 1.80}
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Pizzería Universitaria",
+        "direccion": "Calle Marquesa de Pinares, 10, Mérida",
+        "telefono": "+34 924 00 11 22",
+        "email": "contacto@pizzeriauni.es",
+        "precioMin": 5.0,
+        "precioMax": 15.0,
+        "categorias": ["Pizza", "Italiana"],
+        "valoracion": 4.2,
+        "bikeFriendly": "Sí",
+        "tiempoEntrega": "25-35 min",
+        "costeEnvio": 1.5,
+        "zonas": ["centro", "marquesa pinares", "merida", "estacion"],
+        "imagen": "../assets/logos_restaurantes/pizzeria_logo.jpg",
+        "carta": [
+            {"nombre": "Pizza Margarita", "desc": "Tomate, mozzarella y albahaca.", "precio": 7.50},
+            {"nombre": "Pizza Pepperoni", "desc": "Doble ración de pepperoni picante.", "precio": 9.20},
+            {"nombre": "Calzone Rústico", "desc": "Rellena de jamón, queso y champiñones.", "precio": 10.50}
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Green Garden Healthy",
+        "direccion": "Calle Santa Eulalia, 45, Mérida",
+        "telefono": "+34 924 11 22 33",
+        "email": "info@greengarden.es",
+        "precioMin": 4.0,
+        "precioMax": 14.0,
+        "categorias": ["Saludable", "Vegano", "Ensaladas"],
+        "valoracion": 4.5,
+        "bikeFriendly": "Sí",
+        "tiempoEntrega": "20-30 min",
+        "costeEnvio": 2.0,
+        "zonas": ["centro", "santa eulalia", "merida"],
+        "imagen": "../assets/logos_restaurantes/garden_logo.jpg",
+        "carta": [
+            {"nombre": "Bowl de Quinoa", "desc": "Quinoa con aguacate, mango y tofu ahumado.", "precio": 8.90},
+            {"nombre": "Ensalada César Fit", "desc": "Pollo a la plancha, parmesano y salsa ligera.", "precio": 7.50},
+            {"nombre": "Zumo Detox", "desc": "Manzana verde, apio y jengibre fresco.", "precio": 3.50}
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Burger Campus",
+        "direccion": "Avenida Reina Sofía, 12, Mérida",
+        "telefono": "+34 924 44 55 66",
+        "email": "pedidos@burgercampus.es",
+        "precioMin": 6.0,
+        "precioMax": 18.0,
+        "categorias": ["Hamburguesas", "Americana"],
+        "valoracion": 4.0,
+        "bikeFriendly": "No",
+        "tiempoEntrega": "15-25 min",
+        "costeEnvio": 1.0,
+        "zonas": ["reina sofia", "merida", "estadio"],
+        "imagen": "../assets/logos_restaurantes/burguer_logo.jpg",
+        "carta": [
+            {"nombre": "La CUMe Burguer", "desc": "200g de ternera, queso extremeño y huevo.", "precio": 9.50},
+            {"nombre": "Bacon Cheese Fries", "desc": "Patatas fritas con salsa de queso y bacon.", "precio": 4.20},
+            {"nombre": "Burger Veggie", "desc": "Medallón de lentejas y verduras asadas.", "precio": 8.50}
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Sushi Mérida Centro",
+        "direccion": "Plaza de España, 5, Mérida",
+        "telefono": "+34 924 77 88 99",
+        "email": "hola@sushimerida.com",
+        "precioMin": 10.0,
+        "precioMax": 30.0,
+        "categorias": ["Sushi", "Asiática"],
+        "valoracion": 4.7,
+        "bikeFriendly": "Sí",
+        "tiempoEntrega": "40-50 min",
+        "costeEnvio": 3.5,
+        "zonas": ["centro", "plaza españa", "merida"],
+        "imagen": "../assets/logos_restaurantes/shushi_logo.jpg",
+        "carta": [
+            {"nombre": "Combo 12 Piezas", "desc": "Variado de nigiris, makis y uramakis.", "precio": 14.90},
+            {"nombre": "Gyoza de Pollo", "desc": "6 empanadillas japonesas al vapor.", "precio": 5.50},
+            {"nombre": "Ramen de Miso", "desc": "Fideos con caldo de miso, huevo y cerdo.", "precio": 11.20}
+        ]
+    }
+]

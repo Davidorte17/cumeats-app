@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - CampusBite</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/validations.js" defer></script>
+</head>
+<body class="site-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <main class="register-main">
+        <section class="auth-box">
+            
+            <div class="auth-header">
+                <h1 class="auth-title">Completar cuenta</h1>
+                <p class="auth-subtitle">Únete a CampusBite y no hagas más colas</p>
+            </div>
+
+            <form id="registerForm" novalidate class="auth-form">
+                
+                <div id="registerError" class="error-message hidden">
+                    </div>
+
+                <div class="form-group">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👤</span>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" class="form-control">
+                    </div>
+                    <p id="nombreError" class="field-error hidden"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">👥</span>
+                        <input type="text" id="apellidos" name="apellidos" required placeholder="Tus apellidos" class="form-control">
+                    </div>
+                    <p id="apellidosError" class="field-error hidden"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailRegistro" class="form-label">Correo electrónico</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="emailRegistro" name="emailRegistro" required placeholder="tu@correo.com" class="form-control">
+                    </div>
+                    <p id="emailRegistroError" class="field-error hidden"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordRegistro" class="form-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="passwordRegistro" name="passwordRegistro" required placeholder="Mínimo 8 caracteres, 1 mayúscula, 1 número..." class="form-control">
+                        <button type="button" id="togglePasswordReg" class="btn-toggle-password" title="Mostrar/Ocultar contraseña">
+                            👁️
+                        </button>
+                    </div>
+                    <p id="passwordRegistroError" class="field-error hidden"></p>
+                    <small class="form-hint">Debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordConfirm" class="form-label">Confirmar Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔐</span>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" required placeholder="Repite tu contraseña" class="form-control">
+                    </div>
+                    <p id="passwordConfirmError" class="field-error hidden"></p>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Completar registro
+                </button>
+            </form>
+
+            <div class="auth-links">
+                <p class="link-register-text">
+                    ¿Ya tienes cuenta? <a href="login.html" class="link-register">Inicia sesión</a>
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

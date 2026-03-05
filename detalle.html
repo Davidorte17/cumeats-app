@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Restaurante - CampusBite</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/detalles.js" defer></script>
+</head>
+
+<body class="site-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <main class="detalle-main">
+        <header id="restaurant-header-bg" class="restaurant-header">
+            <div class="container">
+                <div class="restaurant-info-block">
+                    <h1 class="restaurant-title">Cargando restaurante...</h1>
+
+                    <div class="restaurant-details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">📍 Dirección:</span>
+                            <p class="detail-value detail-value-address"></p>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">📞 Teléfono:</span>
+                            <span class="detail-value detail-value-tel"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">✉️ Contacto:</span>
+                            <span class="detail-value detail-value-email"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">💶 Rango de precio:</span>
+                            <span class="detail-value detail-value-price"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">🏷️ Categorías:</span>
+                            <div class="tags-container" id="categories-container"></div>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">⭐ Valoración:</span>
+                            <span class="detail-value detail-value-rating"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">🚴 Bike Friendly:</span>
+                            <span class="detail-value detail-value-bike"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="layout-grid-menu">
+                <section class="menu-section">
+                    <h2 class="section-title">Nuestra Carta</h2>
+
+                    <div class="menu-category">
+                        <h3 class="category-subtitle">Platos Disponibles</h3>
+                        <div class="dish-grid" id="dish-grid">
+                            <p class="loading-msg">Cargando deliciosa comida...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="cart-sidebar">
+                    <div class="cart-container base-card">
+                        <h3 class="sidebar-title">Tu Pedido</h3>
+                        <div class="cart-empty-msg">
+                            <p>Tu cesta está vacía. ¡Empieza a añadir platos!</p>
+                        </div>
+                        <div class="cart-footer">
+                            <button class="btn btn-primary btn-full disabled" disabled>Finalizar Compra</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

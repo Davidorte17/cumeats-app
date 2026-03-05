@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBite - Tu Cafetería Universitaria Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/search.js" defer></script>
+</head>
+
+<body class="site-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+        <div class="container">
+
+            <section class="hero-section">
+                <div class="hero-text">
+                    <h1 class="hero-title">Pide comida y mucho más</h1>
+                    <p class="hero-subtitle">
+                        Encuentra los restaurantes y opciones de la cafetería que realizan entregas cerca de ti.
+                    </p>
+                    <div class="hero-action">
+                        <form action="listado.html" method="GET" class="search-bar">
+                            <img src="assets/logo_cumeats.png" alt="Logo" class="search-logo-img">
+                            <input type="text" id="direccion" name="direccion"
+                                placeholder="Ej: Avenida de la Universidad, Mérida..." class="search-input"
+                                autocomplete="off">
+                            <button type="submit" class="btn btn-primary btn-search">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="hero-image-placeholder">
+                    <span class="hero-icon">🍔</span>
+                </div>
+            </section>
+
+            <section class="categories-section">
+                <h2 class="section-title">Categorías Populares</h2>
+                <div class="categories-grid">
+
+                    <div class="category-card">
+                        <span class="category-icon">☕</span>
+                        <h3 class="category-name">Cafés</h3>
+                    </div>
+
+                    <div class="category-card">
+                        <span class="category-icon">🥖</span>
+                        <h3 class="category-name">Bocadillos</h3>
+                    </div>
+
+                    <div class="category-card">
+                        <span class="category-icon">🍽️</span>
+                        <h3 class="category-name">Menú del Día</h3>
+                    </div>
+
+                    <div class="category-card">
+                        <span class="category-icon">🍕</span>
+                        <h3 class="category-name">Pizzas</h3>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="favorites-section">
+                <h2 class="section-title">Los Favoritos del Centro</h2>
+                <div class="products-grid">
+
+                    <article class="product-card">
+                        <div class="product-image-placeholder">
+                            <span class="product-icon">🥪</span>
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">Bocadillo de Tortilla con Jamón</h3>
+                            <p class="product-description">El clásico que nunca falla. Elaborado diariamente con huevos
+                                camperos.</p>
+                            <div class="product-footer">
+                                <span class="product-price">3.50€</span>
+                                <button class="btn btn-add">
+                                    <span class="icon-plus">➕</span> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

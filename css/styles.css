@@ -1,0 +1,962 @@
+/* ==========================================================================
+   VARIABLES GLOBALES
+   ========================================================================== */
+:root {
+    --primary-color: #ff8000;
+    --primary-hover: #e67300;
+    --secondary-color: #0f766e;
+    --secondary-hover: #0d5f58;
+    
+    --bg-color: #d9dce3; 
+    --surface-color: #ffffff; 
+    --text-main: #1f2937;
+    --text-muted: #4b5563; 
+    --border-color: #d1d5db; 
+    
+    /* Sombras*/
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.15), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    
+    /* Espaciados y bordes */
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+    
+    /* Tipografía */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   RESET Y BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   LAYOUT GLOBAL
+   ========================================================================== */
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content,
+.listado-main,
+.detalle-main,
+.login-main,
+.register-main,
+.edicion-main {
+    flex-grow: 1;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   COMPONENTES GENÉRICOS (Botones y Tarjetas base)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-add-cart {
+    background-color: #f3f4f6;
+    color: var(--text-main);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+}
+
+.btn-add-cart:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Clase base compartida para tarjetas (ahorra mucho código) */
+.base-card {
+    background-color: var(--surface-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   HEADER Y FOOTER
+   ========================================================================== */
+.main-header {
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow-sm);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-link {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    color: var(--primary-color);
+}
+
+.logo-link span {
+    color: var(--primary-color); 
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a { 
+    font-weight: 500; 
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.nav-links a:hover { 
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-cart { 
+    background: none; 
+    border: none; 
+    font-size: 1.35rem; 
+    cursor: pointer; 
+    color: white; 
+    transition: transform 0.2s;
+}
+
+.cart-count { 
+    background: var(--primary-color);
+    color: white; 
+    font-size: 0.75rem; 
+    padding: 0.15rem 0.4rem; 
+    border-radius: var(--radius-full); 
+    font-weight: bold; 
+    vertical-align: top; 
+    margin-left: -8px; 
+    border: 2px solid var(--secondary-color);
+}
+
+.main-footer {
+    background-color: #1f2937;
+    color: #d1d5db;
+    padding: 3rem 0;
+    margin-top: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+.footer-title {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #374151;
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   LOGOS PERSONALIZADOS
+   ========================================================================== */
+
+/* Logo del Header */
+.header-logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.75rem;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+}
+
+.search-logo-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   INICIO (index.html)
+   ========================================================================== */
+.hero-section {
+    background-color: var(--secondary-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0 3rem 0;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row;
+        padding: 4rem;
+        justify-content: space-between;
+    }
+}
+
+.hero-text {
+    flex: 1;
+    color: white;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-image-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.address-search-form {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+.search-input-wrapper {
+    display: flex;
+    background-color: white;
+    border-radius: var(--radius-full);
+    padding: 0.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.search-input-wrapper .input-icon {
+    padding: 0 0.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-main {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.btn-search-main {
+    padding: 0.75rem 2rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+.category-card {
+    @extend .base-card;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--surface-color);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.product-image-placeholder {
+    height: 150px;
+    background-color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.product-details {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.product-description {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   LISTADO DE RESTAURANTES (listado.html)
+   ========================================================================== */
+.search-section {
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 600px;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+}
+
+.layout-grid-sidebar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .layout-grid-sidebar {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+.filters-sidebar {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.filter-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.restaurant-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+@media (min-width: 640px) {
+    .restaurant-card {
+        flex-direction: row;
+    }
+}
+
+.restaurant-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.restaurant-img-placeholder {
+    height: 150px;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;  
+}
+
+@media (min-width: 640px) { 
+    .restaurant-img-placeholder { 
+        width: 200px; 
+        height: auto; 
+    } 
+}
+
+.restaurant-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover .restaurant-cover {
+    transform: scale(1.05);
+}
+
+.restaurant-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.restaurant-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.restaurant-delivery {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    background: var(--bg-color);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   DETALLE DE RESTAURANTE (detalle.html)
+   ========================================================================== */
+.restaurant-header {
+    background-color: var(--secondary-color);
+    background-image: linear-gradient(135deg, var(--secondary-color) 0%, #042f2e 100%);
+    color: white;
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* Temas dinámicos de color */
+.cume-theme { background-image: linear-gradient(135deg, var(--secondary-color), #042f2e); }
+.pizza-theme { background-image: linear-gradient(135deg, #e11d48, #9f1239); }
+.burger-theme { background-image: linear-gradient(135deg, #d97706, #92400e); }
+.sushi-theme { background-image: linear-gradient(135deg, #0f172a, #334155); }
+.veggie-theme { background-image: linear-gradient(135deg, #16a34a, #14532d); }
+
+.restaurant-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+/* Grid moderno para la información */
+.restaurant-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* En tablets, 2 columnas */
+@media (min-width: 640px) {
+    .restaurant-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* En pantallas grandes, 3 columnas */
+@media (min-width: 1024px) {
+    .restaurant-details-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tarjetas translúcidas para cada dato */
+.detail-item {
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente */
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.detail-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+}
+
+.detail-value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Etiquetas (Tags) de Categorías */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.tag {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.layout-grid-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .layout-grid-menu {
+        grid-template-columns: 1fr 320px;
+    }
+}
+
+.menu-category {
+    margin-bottom: 2rem;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.dish-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .dish-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.dish-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.dish-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.dish-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.dish-price {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.cart-sidebar {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    position: sticky;
+    top: 5rem;
+    height: fit-content;
+}
+
+.cart-empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 0;
+    margin-bottom: 1rem;
+}
+
+.btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   ESTILOS PARA EL AUTOCOMPLETADO (search.js)
+   ========================================================================== */
+.autocomplete-results {
+    position: absolute;
+    background-color: var(--surface-color) !important;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    top: 100%;
+}
+
+.autocomplete-results li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    color: var(--text-main) !important;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.autocomplete-results li:hover {
+    background-color: #f3f4f6;
+    color: var(--primary-color) !important;
+}
+
+.search-input-wrapper, .search-bar {
+    position: relative;
+}
+
+/* ==========================================================================
+   ESTILOS PARA EL LISTADO (search.js)
+   ========================================================================== */
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 3rem 0;
+}
+
+#all-restaurants-container {
+    opacity: 0.85;
+}
+
+#all-restaurants-container:hover {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   CARRITO DE COMPRAS (Sidebar en detalle.html)
+   ========================================================================== */
+.cart-sidebar {
+    background-color: var(--surface-color);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+    overflow: hidden; 
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    padding: 1.5rem 1.5rem 1rem;
+    margin: 0;
+    border-bottom: 2px solid var(--bg-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.cart-empty-msg {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+.cart-items-list {
+    list-style: none;
+    padding: 0 1.5rem;
+    margin: 1rem 0;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 0.95rem;
+    animation: slideIn 0.3s ease;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-name {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text-main);
+    padding-right: 1rem;
+    line-height: 1.3;
+}
+
+.cart-item-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-right: 0.75rem;
+}
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.35rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s, transform 0.2s;
+    display: flex;
+}
+
+.btn-remove-item:hover {
+    background-color: #fef2f2;
+    transform: scale(1.1);
+}
+
+.cart-footer {
+    padding: 1.5rem;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(15px); }
+    to { opacity: 1; transform: translateX(0); }
+}

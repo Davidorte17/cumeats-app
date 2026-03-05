@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - CampusBite</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/validations.js" defer></script>
+</head>
+<body class="site-wrapper">
+
+    <div id="header-placeholder"></div>
+
+    <main class="login-main">
+        <section class="auth-box">
+            
+            <div class="auth-header">
+                <h1 class="auth-title">Iniciar sesión</h1>
+                <p class="auth-subtitle">¡Qué bueno verte de nuevo!</p>
+            </div>
+
+            <form id="loginForm" novalidate class="auth-form">
+                
+                <div id="loginError" class="error-message hidden">
+                    </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="email" name="email" required placeholder="tu@correo.com" class="form-control">
+                    </div>
+                    <p id="emailError" class="field-error hidden"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" name="password" required placeholder="••••••••" class="form-control">
+                        <button type="button" id="togglePassword" class="btn-toggle-password" title="Mostrar/Ocultar contraseña">
+                            👁️
+                        </button>
+                    </div>
+                    <p id="passwordError" class="field-error hidden"></p>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <div class="auth-links">
+                <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+                <p class="link-register-text">
+                    ¿No tienes cuenta? <a href="registro.html" class="link-register">Regístrate</a>
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>
